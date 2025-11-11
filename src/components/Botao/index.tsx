@@ -3,11 +3,18 @@ import style from "./Botao.module.scss";
 
 interface Props {
   children?: React.ReactNode;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 class Botao extends React.Component<Props> {
+  // { type?: "button" | "submit" | "reset" | undefined }
   render() {
-    return <button className={style.botao}>{this.props.children}</button>;
+    const { type = "button" } = this.props;
+    return (
+      <button type={type} className={style.botao}>
+        {this.props.children}
+      </button>
+    );
   }
 }
 
